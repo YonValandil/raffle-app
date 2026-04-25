@@ -20,6 +20,18 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Stack
+- Next.js (App Router)
+- Supabase (Auth + DB)
+- Stripe (Payments)
+
+## Features
+- Authentication
+- Raffle participation
+- Countdown timer
+- Admin dashboard
+- Secure payments
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
