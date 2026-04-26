@@ -27,10 +27,17 @@ Cible : grand public, communauté gamer/Discord.
 - Paiement confirmé côté serveur AVANT inscription en DB (jamais côté client)
 
 ## Stack
-- Next.js 15 App Router, TypeScript, Tailwind
-- Supabase (DB + Auth)
+- Next.js 16.2.4 App Router, React 19.2, TypeScript, Tailwind v4
+- Supabase (DB + Auth) via @supabase/ssr
 - Stripe + PayPal via couche d'abstraction /lib/payments.ts
 - Framer Motion (animations)
+
+### Specifics Next.js 16 (breaking vs 15)
+- Le middleware s'appelle désormais `proxy.ts` à la racine (et la fonction exportée s'appelle `proxy()`). Ne pas créer `middleware.ts`.
+- `cookies()`, `headers()`, `params`, `searchParams` sont async — toujours `await`.
+- `revalidateTag(tag, profile)` : 2 arguments requis.
+- Server Components async par défaut ; `'use client'` seulement pour l'interactivité.
+- Webhooks (Stripe / PayPal) : Route Handlers `app/api/.../route.ts` (raw body requis).
 
 ## Architecture paiements
 Ne jamais appeler Stripe ou PayPal directement dans les composants.
